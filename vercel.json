@@ -31,5 +31,8 @@
       "path": "/api/cron/catalog-enrichment",
       "schedule": "30 0 * * *"
     }
-  ]
+  ],
+  "buildCommand": "bun run build",
+  "installCommand": "bun install",
+  "framework": "nextjs"
 }
