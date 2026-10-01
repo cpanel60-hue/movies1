@@ -9,8 +9,6 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'image.tmdb.org', port: '', pathname: '/t/p/**' },
     ],
   },
-  output: 'standalone',
-  transpilePackages: ['motion'],
   webpack: (config, { dev }) => {
     if (dev && process.env.DISABLE_HMR === 'true') config.watchOptions = { ignored: /.*/ };
     return config;
