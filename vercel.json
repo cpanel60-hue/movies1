@@ -15,6 +15,6 @@
     {"path": "/api/cron/catalog-enrichment", "schedule": "30 0 * * *"}
   ],
   "buildCommand": "npm run build",
-  "installCommand": "npm install --include=optional",
+  "installCommand": "npm install --include=optional --no-save lightningcss @tailwindcss/oxide",
   "framework": "nextjs"
 }
