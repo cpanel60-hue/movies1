@@ -32,7 +32,7 @@
       "schedule": "30 0 * * *"
     }
   ],
-  "buildCommand": "bun run build",
-  "installCommand": "bun install",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "framework": "nextjs"
 }
