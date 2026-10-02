@@ -5,6 +5,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cinevero.vercel.ap
 const CATEGORIES: CatalogCategory[] = ['movies', 'series', 'anime'];
 
 export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
 function xml(value: string) {
