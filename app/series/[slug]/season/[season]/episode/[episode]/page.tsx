@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { ArrowDownToLine, ChevronLeft, CirclePause, Download, Play, Star } from 'lucide-react';
 import { tmdbDetails, tmdbImage, tmdbSeason } from '@/lib/tmdb';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cinevero.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
 function parseId(value:string){const match=value.match(/-(\d+)$/);return match?Number(match[1]):Number(value)}
 function titleOf(item:any){return item.name||item.original_name||item.title||'Untitled'}
 async function getEpisode(slug:string, seasonParam:string, episodeParam:string){const id=parseId(slug),seasonNumber=Number(seasonParam),episodeNumber=Number(episodeParam);if(!Number.isFinite(id)||!Number.isInteger(seasonNumber)||seasonNumber<1||!Number.isInteger(episodeNumber)||episodeNumber<1)return null;try{const [show,season]=await Promise.all([tmdbDetails('tv',id),tmdbSeason(id,seasonNumber)]);const episode=(season.episodes||[]).find((item:any)=>item.episode_number===episodeNumber);return episode?{id,show,season,episode,seasonNumber,episodeNumber}:null}catch{return null}}
