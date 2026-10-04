@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound, permanentRedirect } from 'next/navigation';
 import { Star, Clock, ExternalLink, Play, Sparkles } from 'lucide-react';
 import { slugify, tmdbDetails, tmdbImage } from '@/lib/tmdb';
-import HuluCrunchyrollCommunity from '@/components/HuluCrunchyrollCommunity';
+import HuluCrunchyrollCommunity from '@/components/CineveroCommunity';
 import WatchProviders from '@/components/WatchProviders';
 import DisplayAd300x250 from '@/components/DisplayAd300x250';
 import { evaluateQualityGate } from '@/lib/quality-gate';
