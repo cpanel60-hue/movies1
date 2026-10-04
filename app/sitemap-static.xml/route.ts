@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cinevero.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
 
 const GENRES = ['action','adventure','animation','comedy','crime','documentary','drama','family','fantasy','horror','mystery','romance','science-fiction','thriller','western'];
-const GUIDES = ['how-to-choose-a-movie-by-mood','what-to-watch-when-you-have-90-minutes','movie-or-tv-series','how-cinevero-recommendations-work','how-to-find-a-good-movie-without-scrolling-forever'];
+const GUIDES = ['how-to-choose-a-movie-by-mood','what-to-watch-when-you-have-90-minutes','movie-or-tv-series','how-hulu-crunchyroll-recommendations-work','how-to-find-a-good-movie-without-scrolling-forever'];
 const TRUST_ROUTES = ['about','guides','faq','privacy-policy','terms','dmca','contact'];
 
 function xml(value: string) {
