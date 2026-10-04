@@ -8,7 +8,7 @@ type Community = { comments: any[]; rating: { average: number | null; count: num
 
 const STAR_VALUES = [1, 2, 3, 4, 5] as const;
 
-export default function Hulu CrunchyrollCommunity({ tmdbId, mediaType, title }: Props) {
+export default function CineveroCommunity({ tmdbId, mediaType, title }: Props) {
   const [data, setData] = useState<Community | null>(null);
   const [rating, setRating] = useState(0); const [hoverRating, setHoverRating] = useState(0); const [recommend, setRecommend] = useState(false); const [watched, setWatched] = useState(false);
   const [name, setName] = useState(''); const [comment, setComment] = useState(''); const [spoiler, setSpoiler] = useState(false); const [busy, setBusy] = useState(false); const [message, setMessage] = useState(''); const [revealed, setRevealed] = useState<Record<string, boolean>>({});
