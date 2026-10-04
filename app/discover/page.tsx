@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import HuluCrunchyrollDiscover from '@/components/HuluCrunchyrollDiscover';
+import HuluCrunchyrollDiscover from '@/components/CineveroDiscover';
 
 export const metadata: Metadata = {
   title: 'Hulu Crunchyroll Discover — Decide What to Watch',
