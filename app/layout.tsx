@@ -10,19 +10,19 @@ import AdSenseUnit from '@/components/AdSenseUnit';
 const GOOGLE_SITE_VERIFICATION = 'WkXRsZNaG77qk0yXebhvc_3VAHqFVP7NsvdVhtFSO5A';
 const BING_SITE_VERIFICATION = '84783D6C29D7BA1FE3D5503CF8ABF55D';
 const YANDEX_SITE_VERIFICATION = '512bbf7efb34a7ed';
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cinevero.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
 const ADSENSE_ACCOUNT = 'ca-pub-2298621556332463';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: 'Cinevero – Movies & TV Series Discovery', template: '%s | Cinevero' },
-  description: 'Discover movies and TV series with Cinevero: mood-based discovery, trending titles, popular picks, genres, trailers and detailed movie pages.',
-  applicationName: 'Cinevero',
-  keywords: ['Cinevero', 'movies', 'TV series', 'films', 'movie discovery', 'what to watch', 'movie recommendations', 'trailers'],
+  title: { default: 'Hulu Crunchyroll – Movies & TV Series Discovery', template: '%s | Hulu Crunchyroll' },
+  description: 'Discover movies and TV series with Hulu Crunchyroll: mood-based discovery, trending titles, popular picks, genres, trailers and detailed movie pages.',
+  applicationName: 'Hulu Crunchyroll',
+  keywords: ['Hulu Crunchyroll', 'movies', 'TV series', 'films', 'movie discovery', 'what to watch', 'movie recommendations', 'trailers'],
   alternates: { canonical: '/', languages: { en: '/', 'x-default': '/' } },
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
-  openGraph: { title: 'Cinevero – Movies & TV Series Discovery', description: 'Decide what to watch with Cinevero: explore movies and series by mood, time, genre and more.', type: 'website', url: SITE_URL, siteName: 'Cinevero' },
-  twitter: { card: 'summary_large_image', title: 'Cinevero – Movies & TV Series Discovery', description: 'Discover what to watch with Cinevero.' },
+  openGraph: { title: 'Hulu Crunchyroll – Movies & TV Series Discovery', description: 'Decide what to watch with Hulu Crunchyroll: explore movies and series by mood, time, genre and more.', type: 'website', url: SITE_URL, siteName: 'Hulu Crunchyroll' },
+  twitter: { card: 'summary_large_image', title: 'Hulu Crunchyroll – Movies & TV Series Discovery', description: 'Discover what to watch with Hulu Crunchyroll.' },
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
     other: {
