@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import CineveroDiscover from '@/components/CineveroDiscover';
+import HuluCrunchyrollDiscover from '@/components/HuluCrunchyrollDiscover';
 
 export const metadata: Metadata = {
   title: 'Hulu Crunchyroll Discover — Decide What to Watch',
@@ -29,7 +29,7 @@ export default function DiscoverPage() {
         </div>
       </section>
 
-      <CineveroDiscover />
+      <HuluCrunchyrollDiscover />
 
       <section className="mx-auto mt-10 max-w-[1180px] border-t border-[#d9edf4] px-4 pt-7 sm:px-6">
         <h2 className="text-lg font-black text-[#17324d]">How Hulu Crunchyroll decides</h2>
