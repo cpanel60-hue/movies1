@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { tmdbDiscover, tmdbDetails, type TmdbMediaType, type TmdbTitle } from '@/lib/tmdb';
-import { prefilterCandidates, scoreCandidate, diversify, type DiscoverContext, type FeedbackEvent } from '@/lib/hulucrunchyroll-engine';
+import { prefilterCandidates, scoreCandidate, diversify, type DiscoverContext, type FeedbackEvent } from '@/lib/cinevero-engine';
 
 export const dynamic = 'force-dynamic';
 
