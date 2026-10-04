@@ -89,8 +89,8 @@ export async function POST(request: Request) {
       vote_count: item.vote_count ?? 0,
       original_language: item.original_language ?? '',
       genres: item.genres ?? [],
-      huluCrunchyrollScore: item.huluCrunchyrollScore,
-      huluCrunchyrollReasons: item.huluCrunchyrollReasons,
+      hulucrunchyrollScore: item.hulucrunchyrollScore,
+      hulucrunchyrollReasons: item.hulucrunchyrollReasons,
       trailerKey: item.videos?.results?.find(v => v.site === 'YouTube' && v.type === 'Trailer' && (v.official ?? true))?.key ?? null,
       providers: item.watch_providers?.results?.US?.flatrate?.slice(0, 4).map(p => p.provider_name) ?? [],
     }));
