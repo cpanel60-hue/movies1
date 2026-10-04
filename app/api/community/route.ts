@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createHash, randomUUID } from 'crypto';
-import { getCommunity, hasDisallowedLink, cleanComment, cleanName, insertComment, upsertRating, reactToComment, recentCommentCount, type CommunityMediaType } from '@/lib/hulucrunchyroll-community';
+import { getCommunity, hasDisallowedLink, cleanComment, cleanName, insertComment, upsertRating, reactToComment, recentCommentCount, type CommunityMediaType } from '@/lib/cinevero-community';
 
 const COOKIE = 'hulucrunchyroll_guest';
 
