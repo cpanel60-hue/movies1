@@ -3,6 +3,8 @@ import './globals.css';
 import LegalFooter from '@/components/LegalFooter';
 import SiteHeader from '@/components/SiteHeader';
 import VercelAnalyticsScript from '@/components/VercelAnalyticsScript';
+
+export const dynamic = 'force-dynamic';
 import AdSenseUnit from '@/components/AdSenseUnit';
 
 const GOOGLE_SITE_VERIFICATION = 'WkXRsZNaG77qk0yXebhvc_3VAHqFVP7NsvdVhtFSO5A';
