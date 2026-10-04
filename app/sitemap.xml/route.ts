@@ -13,7 +13,7 @@ function xml(value: string) {
 }
 
 export async function GET() {
-  const counts = await Promise.all(CATEGORIES.map(async category => ({ category, count: await countCatalogSitemap(category) })));
+  const counts = await Promise.all(CATEGORIES.map(async category => {\n    try {\n      return { category, count: await countCatalogSitemap(category) };\n    } catch {\n      return { category, count: 0 };\n    }\n  }));
 
   const entries = [
     `  <sitemap><loc>${xml(`${SITE_URL}/sitemap-static.xml`)}</loc></sitemap>`,
