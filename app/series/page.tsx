@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Star, SlidersHorizontal } from 'lucide-react';
 import { slugify, tmdbDiscover, tmdbImage } from '@/lib/tmdb';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cinevero.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ page?: string }> }): Promise<Metadata> {
@@ -12,7 +12,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
   const page = Number.isFinite(p) && p > 1 ? Math.min(Math.floor(p), 500) : 1;
   return {
     title: page > 1 ? `Series – Page ${page}` : 'TV Series',
-    description: 'Browse TV series and discover shows on Cinevero.',
+    description: 'Browse TV series and discover shows on Hulu Crunchyroll.',
     alternates: { canonical: page > 1 ? `${SITE_URL}/series?page=${page}` : `${SITE_URL}/series` },
     robots: { index: page === 1, follow: true },
   };
@@ -30,7 +30,7 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
       <div className="mx-auto max-w-[1180px] px-4 py-8 sm:px-6 sm:py-10">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-600">Cinevero catalogue</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-600">Hulu Crunchyroll catalogue</p>
             <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">TV Series</h1>
             <p className="mt-2 text-zinc-500">Browse popular shows and discover series worth exploring.</p>
           </div>
