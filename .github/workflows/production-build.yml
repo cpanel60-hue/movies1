@@ -1,4 +1,5 @@
 name: Production build check
+# Vercel build validation uses Node 24 without npm cache requirements.
 
 on:
   push:
