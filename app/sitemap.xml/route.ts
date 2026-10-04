@@ -13,7 +13,13 @@ function xml(value: string) {
 }
 
 export async function GET() {
-  const counts = await Promise.all(CATEGORIES.map(async category => {\n    try {\n      return { category, count: await countCatalogSitemap(category) };\n    } catch {\n      return { category, count: 0 };\n    }\n  }));
+  const counts = await Promise.all(CATEGORIES.map(async category => {
+    try {
+      return { category, count: await countCatalogSitemap(category) };
+    } catch {
+      return { category, count: 0 };
+    }
+  }));
 
   const entries = [
     `  <sitemap><loc>${xml(`${SITE_URL}/sitemap-static.xml`)}</loc></sitemap>`,
@@ -27,7 +33,8 @@ export async function GET() {
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${entries.join('\n')}
+${entries.join('
+')}
 </sitemapindex>`;
 
   return new NextResponse(body, {
