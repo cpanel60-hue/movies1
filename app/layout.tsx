@@ -7,7 +7,7 @@ import VercelAnalyticsScript from '@/components/VercelAnalyticsScript';
 export const dynamic = 'force-dynamic';
 import AdSenseUnit from '@/components/AdSenseUnit';
 
-const GOOGLE_SITE_VERIFICATION = 'WkXRsZNaG77qk0yXebhvc_3VAHqFVP7NsvdVhtFSO5A';
+const GOOGLE_SITE_VERIFICATION = '-npDm0pPUxzUXuY0AnLJyAZ-g5pqBWeOaJsp3wlzLv4';
 const BING_SITE_VERIFICATION = '84783D6C29D7BA1FE3D5503CF8ABF55D';
 const YANDEX_SITE_VERIFICATION = '512bbf7efb34a7ed';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
