@@ -23,7 +23,7 @@ const GENRES: Record<string, { name: string; movie: number; tv: number }> = {
   western: { name: 'Western', movie: 37, tv: 0 },
 };
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cinevero.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
 
 export function generateStaticParams() {
   return Object.keys(GENRES).map((slug) => ({ slug }));
@@ -38,16 +38,16 @@ export async function generateMetadata({
   const genre = GENRES[slug];
   if (!genre) return { title: 'Genre not found', robots: { index: false } };
 
-  const description = `Browse popular ${genre.name.toLowerCase()} movies and TV series on Cinevero.`;
+  const description = `Browse popular ${genre.name.toLowerCase()} movies and TV series on Hulu Crunchyroll.`;
   return {
-    title: `${genre.name} Movies & TV Series`,
+    title: `${genre.name} Movies & TV Series | Hulu Crunchyroll`,
     description,
     alternates: { canonical: `${SITE_URL}/genre/${slug}` },
     openGraph: {
-      title: `${genre.name} Movies & TV Series | Cinevero`,
+      title: `${genre.name} Movies & TV Series | Hulu Crunchyroll`,
       description,
       url: `${SITE_URL}/genre/${slug}`,
-      siteName: 'Cinevero',
+      siteName: 'Hulu Crunchyroll',
       type: 'website',
     },
   };
@@ -127,7 +127,7 @@ export default async function GenrePage({
     '@type': 'CollectionPage',
     name: `${genre.name} Movies & TV Series`,
     url: `${SITE_URL}/genre/${slug}`,
-    description: `Browse ${genre.name.toLowerCase()} movies and TV series on Cinevero.`,
+    description: `Browse ${genre.name.toLowerCase()} movies and TV series on Hulu Crunchyroll.`,
   };
 
   return (
@@ -147,10 +147,10 @@ export default async function GenrePage({
           <span className="text-zinc-700">{genre.name}</span>
         </nav>
 
-        <section className="mt-7 rounded-3xl border border-zinc-200 bg-zinc-50 p-6"><p className="text-xs font-black uppercase tracking-[.18em] text-red-600">Cinevero guide</p><h2 className="mt-2 text-2xl font-black">How to explore {genre.name} on Cinevero</h2><p className="mt-3 max-w-3xl leading-7 text-zinc-600">This genre page is designed as a starting point, not a replacement for the individual title pages. Compare movies and series, check the year and rating shown for each title, then open a detail page for the fuller cast, trailer, availability and related-title information.</p><div className="mt-5 grid gap-4 sm:grid-cols-3"><div className="rounded-2xl bg-white p-4"><h3 className="font-bold">Start with the format</h3><p className="mt-2 text-sm leading-6 text-zinc-600">Choose a movie when you want a single story, or explore the series section when you want a longer format.</p></div><div className="rounded-2xl bg-white p-4"><h3 className="font-bold">Compare before opening</h3><p className="mt-2 text-sm leading-6 text-zinc-600">Use the displayed year and rating as quick filters, then inspect the full title page for more context.</p></div><div className="rounded-2xl bg-white p-4"><h3 className="font-bold">Keep discovering</h3><p className="mt-2 text-sm leading-6 text-zinc-600">Related titles and genre navigation provide another route when the first choice is not what you want.</p></div></div></section>
+        <section className="mt-7 rounded-3xl border border-zinc-200 bg-zinc-50 p-6"><p className="text-xs font-black uppercase tracking-[.18em] text-red-600">Hulu Crunchyroll guide</p><h2 className="mt-2 text-2xl font-black">How to explore {genre.name} on Hulu Crunchyroll</h2><p className="mt-3 max-w-3xl leading-7 text-zinc-600">This genre page is designed as a starting point, not a replacement for the individual title pages. Compare movies and series, check the year and rating shown for each title, then open a detail page for the fuller cast, trailer, availability and related-title information.</p><div className="mt-5 grid gap-4 sm:grid-cols-3"><div className="rounded-2xl bg-white p-4"><h3 className="font-bold">Start with the format</h3><p className="mt-2 text-sm leading-6 text-zinc-600">Choose a movie when you want a single story, or explore the series section when you want a longer format.</p></div><div className="rounded-2xl bg-white p-4"><h3 className="font-bold">Compare before opening</h3><p className="mt-2 text-sm leading-6 text-zinc-600">Use the displayed year and rating as quick filters, then inspect the full title page for more context.</p></div><div className="rounded-2xl bg-white p-4"><h3 className="font-bold">Keep discovering</h3><p className="mt-2 text-sm leading-6 text-zinc-600">Related titles and genre navigation provide another route when the first choice is not what you want.</p></div></div></section>
 
         <section className="pt-7">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-600">Cinevero genre</p>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-600">Hulu Crunchyroll genre</p>
           <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
             {genre.name} Movies & TV Series
           </h1>
