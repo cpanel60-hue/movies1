@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { countCatalogSitemap, type CatalogCategory } from '@/lib/catalog-registry';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cinevero.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
 const CATEGORIES: CatalogCategory[] = ['movies', 'series', 'anime'];
 
 export const runtime = 'nodejs';
