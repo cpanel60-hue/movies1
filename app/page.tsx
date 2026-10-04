@@ -3,14 +3,14 @@ import CatalogHome from '@/components/CatalogHome';
 import AiSeoSignals from '@/components/AiSeoSignals';
 import { tmdbAnimeHome, tmdbNowPlaying, tmdbPopular, tmdbTrending, tmdbUpcoming } from '@/lib/tmdb';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cinevero.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
 export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
-  title: 'Cinevero – Decide What to Watch | Movies, Series & Anime Discovery',
-  description: 'Decide what to watch with Cinevero. Discover movies, series and anime by mood, time, genre, pace and viewing context.',
-  keywords: ['what to watch', 'movie recommendations', 'TV recommendations', 'anime recommendations', 'movies by mood', 'Cinevero Discover'],
+  title: 'Hulu Crunchyroll – Decide What to Watch | Movies, Series & Anime Discovery',
+  description: 'Decide what to watch with Hulu Crunchyroll. Discover movies, series and anime by mood, time, genre, pace and viewing context.',
+  keywords: ['what to watch', 'movie recommendations', 'TV recommendations', 'anime recommendations', 'movies by mood', 'Hulu Crunchyroll Discover'],
   alternates: { canonical: SITE_URL },
-  openGraph: { title: 'Cinevero – Decide What to Watch', description: 'Discover movies, series and anime matched to your mood, time and viewing context.', url: SITE_URL, type: 'website', siteName: 'Cinevero' },
+  openGraph: { title: 'Hulu Crunchyroll – Decide What to Watch', description: 'Discover movies, series and anime matched to your mood, time and viewing context.', url: SITE_URL, type: 'website', siteName: 'Hulu Crunchyroll' },
 };
 const empty = { results: [] };
 
@@ -24,8 +24,8 @@ export default async function HomePage() {
     tmdbAnimeHome().catch(() => empty),
   ]);
 
-  const websiteLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Cinevero', url: SITE_URL, description: 'A movie, TV series and anime discovery platform that helps people decide what to watch based on mood, time and viewing context.', potentialAction: { '@type': 'SearchAction', target: `${SITE_URL}/search?q={search_term_string}`, 'query-input': 'required name=search_term_string' } };
-  const organizationLd = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Cinevero', url: SITE_URL };
+  const websiteLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Hulu Crunchyroll', url: SITE_URL, description: 'A movie, TV series and anime discovery platform that helps people decide what to watch based on mood, time and viewing context.', potentialAction: { '@type': 'SearchAction', target: `${SITE_URL}/search?q={search_term_string}`, 'query-input': 'required name=search_term_string' } };
+  const organizationLd = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Hulu Crunchyroll', url: SITE_URL };
 
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
