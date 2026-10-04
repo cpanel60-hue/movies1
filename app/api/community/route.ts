@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createHash, randomUUID } from 'crypto';
-import { getCommunity, hasDisallowedLink, cleanComment, cleanName, insertComment, upsertRating, reactToComment, recentCommentCount, type CommunityMediaType } from '@/lib/cinevero-community';
+import { getCommunity, hasDisallowedLink, cleanComment, cleanName, insertComment, upsertRating, reactToComment, recentCommentCount, type CommunityMediaType } from '@/lib/hulucrunchyroll-community';
 
-const COOKIE = 'cinevero_guest';
+const COOKIE = 'hulucrunchyroll_guest';
 
 function media(value: string | null): CommunityMediaType | null { return value === 'movie' || value === 'tv' ? value : null; }
 function tmdb(value: string | null) { const n = Number(value); return Number.isInteger(n) && n > 0 ? n : null; }
