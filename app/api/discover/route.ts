@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { tmdbDiscover, tmdbDetails, type TmdbMediaType, type TmdbTitle } from '@/lib/tmdb';
-import { prefilterCandidates, scoreCandidate, diversify, type DiscoverContext, type FeedbackEvent } from '@/lib/cinevero-engine';
+import { prefilterCandidates, scoreCandidate, diversify, type DiscoverContext, type FeedbackEvent } from '@/lib/hulucrunchyroll-engine';
 
 export const dynamic = 'force-dynamic';
 
@@ -89,15 +89,15 @@ export async function POST(request: Request) {
       vote_count: item.vote_count ?? 0,
       original_language: item.original_language ?? '',
       genres: item.genres ?? [],
-      cineveroScore: item.cineveroScore,
-      cineveroReasons: item.cineveroReasons,
+      huluCrunchyrollScore: item.huluCrunchyrollScore,
+      huluCrunchyrollReasons: item.huluCrunchyrollReasons,
       trailerKey: item.videos?.results?.find(v => v.site === 'YouTube' && v.type === 'Trailer' && (v.official ?? true))?.key ?? null,
       providers: item.watch_providers?.results?.US?.flatrate?.slice(0, 4).map(p => p.provider_name) ?? [],
     }));
 
     return NextResponse.json({ picks, candidateCount: pool.length, enrichedCount: enriched.length, engineVersion: 'v1-context-rules' });
   } catch (error) {
-    console.error('Cinevero Discover error', error);
+    console.error('Hulu Crunchyroll Discover error', error);
     return NextResponse.json({ picks: [], error: 'Unable to build recommendations right now.' }, { status: 500 });
   }
 }
