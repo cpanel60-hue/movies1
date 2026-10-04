@@ -57,7 +57,7 @@ export default function SiteHeader() {
         </button>
 
         <Link href="/" aria-label="Hulu Crunchyroll home" className="shrink-0 text-[22px] font-black tracking-[-.08em] text-white">
-          CINE<span className="text-[#168aad]">VERO</span><span className="ml-1 text-[10px] align-top text-[#ff6b4a]">✦</span>
+          HULU<span className="text-[#168aad]"> CRUNCHYROLL</span>
         </Link>
 
         <form onSubmit={submit} role="search" className="ml-5 hidden max-w-[330px] flex-1 md:flex">
@@ -98,7 +98,7 @@ export default function SiteHeader() {
       </div>
 
       {open && (
-        <div id="cinevero-mobile-nav" className="border-t border-white/10 bg-[#121122] px-4 py-3 md:hidden">
+        <div id="hulu-crunchyroll-mobile-nav" className="border-t border-white/10 bg-[#121122] px-4 py-3 md:hidden">
           <nav className="grid gap-1 text-sm font-bold">
             {links.map(link => (
               <Link
