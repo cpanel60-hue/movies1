@@ -56,7 +56,7 @@ export default function SiteHeader() {
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
 
-        <Link href="/" aria-label="Cinevero home" className="shrink-0 text-[22px] font-black tracking-[-.08em] text-white">
+        <Link href="/" aria-label="Hulu Crunchyroll home" className="shrink-0 text-[22px] font-black tracking-[-.08em] text-white">
           CINE<span className="text-[#168aad]">VERO</span><span className="ml-1 text-[10px] align-top text-[#ff6b4a]">✦</span>
         </Link>
 
