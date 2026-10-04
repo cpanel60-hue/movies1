@@ -8,7 +8,7 @@ type Community = { comments: any[]; rating: { average: number | null; count: num
 
 const STAR_VALUES = [1, 2, 3, 4, 5] as const;
 
-export default function CineveroCommunity({ tmdbId, mediaType, title }: Props) {
+export default function Hulu CrunchyrollCommunity({ tmdbId, mediaType, title }: Props) {
   const [data, setData] = useState<Community | null>(null);
   const [rating, setRating] = useState(0); const [hoverRating, setHoverRating] = useState(0); const [recommend, setRecommend] = useState(false); const [watched, setWatched] = useState(false);
   const [name, setName] = useState(''); const [comment, setComment] = useState(''); const [spoiler, setSpoiler] = useState(false); const [busy, setBusy] = useState(false); const [message, setMessage] = useState(''); const [revealed, setRevealed] = useState<Record<string, boolean>>({});
@@ -63,11 +63,11 @@ export default function CineveroCommunity({ tmdbId, mediaType, title }: Props) {
       <div className="border-b border-[#f2e5ed] px-4 py-5 sm:px-6 sm:py-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#fff0f7] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-[#c85b91]"><Sparkles size={12} /> Cinevero community</div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#fff0f7] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-[#c85b91]"><Sparkles size={12} /> Hulu Crunchyroll community</div>
             <div className="mt-3 flex items-center gap-2.5"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-2xl bg-[#e9f8fc] text-[#168aad] shadow-sm"><MessageCircle size={18} /></span><div><h2 id="cinevero-community-title" className="text-xl font-black tracking-tight text-[#19354b] sm:text-2xl">What viewers think</h2><p className="mt-0.5 text-xs text-[#7891a3]">Your opinion helps the next viewer decide. Be the first to share a thought.</p></div></div>
           </div>
-          <div className="rounded-[20px] border border-[#f0e1eb] bg-white/90 px-4 py-3 shadow-sm" aria-label={communityAverage === null ? 'No Cinevero ratings yet' : `Cinevero community rating: ${communityAverage} out of 5`}>
-            <div className="flex items-center justify-between gap-3"><span className="text-[10px] font-black uppercase tracking-[0.1em] text-[#7891a3]">Cinevero rating</span><span className="rounded-full bg-[#fff4d9] px-2 py-0.5 text-[9px] font-black text-[#c88918]">Community</span></div>
+          <div className="rounded-[20px] border border-[#f0e1eb] bg-white/90 px-4 py-3 shadow-sm" aria-label={communityAverage === null ? 'No Hulu Crunchyroll ratings yet' : `Hulu Crunchyroll community rating: ${communityAverage} out of 5`}>
+            <div className="flex items-center justify-between gap-3"><span className="text-[10px] font-black uppercase tracking-[0.1em] text-[#7891a3]">Hulu Crunchyroll rating</span><span className="rounded-full bg-[#fff4d9] px-2 py-0.5 text-[9px] font-black text-[#c88918]">Community</span></div>
             <span className="mt-1 flex items-center gap-0.5" aria-hidden="true">{STAR_VALUES.map(value => <Star key={value} size={17} className={value <= communityStars ? 'text-[#ffb02e]' : 'text-[#d7e2e8]'} fill={value <= communityStars ? 'currentColor' : 'none'} />)}</span>
             <span className="mt-0.5 block text-[10px] font-semibold text-[#8aa0ae]">{ratingCount ? `${ratingCount} ${ratingCount === 1 ? 'rating' : 'ratings'}` : 'Be the first rating'}</span>
           </div>
