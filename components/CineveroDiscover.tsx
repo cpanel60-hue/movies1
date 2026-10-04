@@ -15,7 +15,7 @@ const who=[['solo','🧍 Solo'],['couple','❤️ Couple'],['friends','👯 Frie
 const pace=[['slow','🌙 Slow & atmospheric'],['balanced','✨ Balanced'],['fast','⚡ Fast-paced']];
 const key='cinevero-feedback-v1';
 function readFeedback():FeedbackEvent[]{try{return JSON.parse(localStorage.getItem(key)||'[]')}catch{return[]}}
-export default function Hulu CrunchyrollDiscover(){
+export default function CineveroDiscover(){
  const [step,setStep]=useState(0); const [loading,setLoading]=useState(false); const [picks,setPicks]=useState<Pick[]>([]); const [feedback,setFeedback]=useState<FeedbackEvent[]>(() => typeof window === 'undefined' ? [] : readFeedback());
  const [ctx,setCtx]=useState<Context>({mood:'feelgood',time:120,genre:0,who:'solo',language:'',minRating:0,pace:'balanced'});
  const update=(key:keyof Context,value:string|number)=>setCtx(x=>({...x,[key]:value}));
