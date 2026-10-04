@@ -15,7 +15,7 @@ const who=[['solo','🧍 Solo'],['couple','❤️ Couple'],['friends','👯 Frie
 const pace=[['slow','🌙 Slow & atmospheric'],['balanced','✨ Balanced'],['fast','⚡ Fast-paced']];
 const key='cinevero-feedback-v1';
 function readFeedback():FeedbackEvent[]{try{return JSON.parse(localStorage.getItem(key)||'[]')}catch{return[]}}
-export default function CineveroDiscover(){
+export default function Hulu CrunchyrollDiscover(){
  const [step,setStep]=useState(0); const [loading,setLoading]=useState(false); const [picks,setPicks]=useState<Pick[]>([]); const [feedback,setFeedback]=useState<FeedbackEvent[]>(() => typeof window === 'undefined' ? [] : readFeedback());
  const [ctx,setCtx]=useState<Context>({mood:'feelgood',time:120,genre:0,who:'solo',language:'',minRating:0,pace:'balanced'});
  const update=(key:keyof Context,value:string|number)=>setCtx(x=>({...x,[key]:value}));
@@ -23,7 +23,7 @@ export default function CineveroDiscover(){
  const sendFeedback=(pick:Pick,reason:FeedbackEvent['reason'])=>{const event:FeedbackEvent={action:'feedback',reason,titleId:pick.id,mediaType:pick.media_type,timestamp:Date.now()};const next=[...feedback,event];setFeedback(next);localStorage.setItem(key,JSON.stringify(next.slice(-100)));if(reason)void submit(next)};
  const reasons=useMemo(()=>({'too-long':'Too long','too-slow':'Too slow','already-seen':'Already seen','not-for-me':'Not for me'}),[]);
  return <div className="mt-5 overflow-hidden rounded-[24px] border border-sky-100 bg-white shadow-[0_10px_35px_rgba(22,138,173,0.08)] sm:mt-7">
-  {step<4&&<><div className="bg-gradient-to-r from-sky-50 via-white to-orange-50 px-5 py-6 sm:px-8"><div className="flex items-center justify-between gap-3"><div><p className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-cyan-700"><Sparkles size={12}/> Cinevero decision engine</p><h2 className="mt-1 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Let Cinevero decide.</h2></div><span className="rounded-full bg-white px-3 py-1 text-[10px] font-black text-slate-500 shadow-sm ring-1 ring-sky-100">{step+1}/4</span></div></div>
+  {step<4&&<><div className="bg-gradient-to-r from-sky-50 via-white to-orange-50 px-5 py-6 sm:px-8"><div className="flex items-center justify-between gap-3"><div><p className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-cyan-700"><Sparkles size={12}/> Hulu Crunchyroll decision engine</p><h2 className="mt-1 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Let Hulu Crunchyroll decide.</h2></div><span className="rounded-full bg-white px-3 py-1 text-[10px] font-black text-slate-500 shadow-sm ring-1 ring-sky-100">{step+1}/4</span></div></div>
    <div className="px-5 pb-6 sm:px-8 sm:pb-8">
    {step===0&&<Choice title="What do you want to feel?" options={moods} value={ctx.mood} onChange={v=>update('mood',v)}/>} 
    {step===1&&<Choice title="How much time do you have?" options={times} value={ctx.time} onChange={v=>update('time',Number(v))}/>} 
