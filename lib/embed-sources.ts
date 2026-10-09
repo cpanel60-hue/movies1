@@ -24,9 +24,10 @@ export const EMBED_SOURCES: EmbedSource[] = [
     name: 'VidSrc',
     url: (kind, id, ep) => {
       if (!isFinitePositiveInt(id)) return null;
-      if (kind === 'movie') return `https://vidsrc.sh/movies/${id}`;
+      // Official pattern (verified against vidsrc.sh docs): /embed/movie/{tmdb} & /embed/tv/{tmdb}/{s}/{e}
+      if (kind === 'movie') return `https://vidsrc.sh/embed/movie/${id}`;
       if (!ep || !isFinitePositiveInt(ep.season) || !isFinitePositiveInt(ep.episode)) return null;
-      return `https://vidsrc.sh/tv/${id}/${ep.season}/${ep.episode}`;
+      return `https://vidsrc.sh/embed/tv/${id}/${ep.season}/${ep.episode}`;
     },
   },
   {
@@ -54,9 +55,10 @@ export const EMBED_SOURCES: EmbedSource[] = [
     name: 'VidRock',
     url: (kind, id, ep) => {
       if (!isFinitePositiveInt(id)) return null;
-      if (kind === 'movie') return `https://vidrock.ru/movie/${id}`;
+      // vidrock.ru now shows a "Domain Migration" page redirecting to vidrock.to (same paths).
+      if (kind === 'movie') return `https://vidrock.to/movie/${id}`;
       if (!ep || !isFinitePositiveInt(ep.season) || !isFinitePositiveInt(ep.episode)) return null;
-      return `https://vidrock.ru/tv/${id}/${ep.season}/${ep.episode}`;
+      return `https://vidrock.to/tv/${id}/${ep.season}/${ep.episode}`;
     },
   },
   {
@@ -64,9 +66,10 @@ export const EMBED_SOURCES: EmbedSource[] = [
     name: 'CineSrc',
     url: (kind, id, ep) => {
       if (!isFinitePositiveInt(id)) return null;
-      if (kind === 'movie') return `https://cinesrc.st/movie.php?id=${id}`;
+      // Official pattern (verified against cinesrc.st/docs): /embed/movie/{tmdb} & /embed/tv/{tmdb}?s=&e=
+      if (kind === 'movie') return `https://cinesrc.st/embed/movie/${id}`;
       if (!ep || !isFinitePositiveInt(ep.season) || !isFinitePositiveInt(ep.episode)) return null;
-      return `https://cinesrc.st/tv.php?season=${ep.season}&episode=${ep.episode}&seria=${id}`;
+      return `https://cinesrc.st/embed/tv/${id}?s=${ep.season}&e=${ep.episode}`;
     },
   },
   {
