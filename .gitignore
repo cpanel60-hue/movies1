@@ -1,14 +1,10 @@
-# TypeScript build info
-*.tsbuildinfo
-
-# Dependencies (install with: npm install)
 node_modules/
-
-# Next.js build output
 .next/
 out/
-
-# Misc
-.vercel
-*.log
-.env*.local
+build/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts.bak
+.env
+.env.local
+.DS_Store
