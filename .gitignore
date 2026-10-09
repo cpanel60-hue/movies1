@@ -1,10 +1,2 @@
-node_modules/
-.next/
-out/
-build/
-.vercel/
-*.tsbuildinfo
-next-env.d.ts.bak
-.env
-.env.local
-.DS_Store
+# TypeScript build artifacts
+tsconfig.tsbuildinfo
