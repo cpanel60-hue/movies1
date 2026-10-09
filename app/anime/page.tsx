@@ -11,9 +11,9 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
   const requested = Number(pageParam);
   const page = Number.isFinite(requested) && requested > 1 ? Math.min(Math.floor(requested), 500) : 1;
   const title = page > 1 ? `Anime – Page ${page}` : 'Anime Movies & Series';
-  const description = 'Discover popular anime movies and series on Cinevero, with ratings, genres, cast and direct links to every title.';
+  const description = 'Discover popular anime movies and series on Hulu Crunchyroll, with ratings, genres, cast and direct links to every title.';
   const canonical = page > 1 ? `${SITE_URL}/anime?page=${page}` : `${SITE_URL}/anime`;
-  return { title, description, alternates: { canonical }, robots: { index: page === 1, follow: true }, openGraph: { title: `${title} | Cinevero`, description, url: canonical, siteName: 'Cinevero', type: 'website' } };
+  return { title, description, alternates: { canonical }, robots: { index: page === 1, follow: true }, openGraph: { title: `${title} | Hulu Crunchyroll`, description, url: canonical, siteName: 'Hulu Crunchyroll', type: 'website' } };
 }
 
 function titleOf(item: any) { return item.title || item.name || item.original_title || item.original_name || 'Untitled'; }
@@ -33,7 +33,7 @@ export default async function AnimePage({ searchParams }: { searchParams: Promis
     .sort((a, b) => (b.popularity || 0) - (a.popularity || 0));
   const totalPages = Math.min(Math.max(tv.total_pages || 0, movie.total_pages || 0), 500);
   const breadcrumbLd = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL }, { '@type': 'ListItem', position: 2, name: 'Anime', item: `${SITE_URL}/anime` }] };
-  const collectionLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Anime Movies & Series', description: 'Popular anime movies and series on Cinevero.', url: `${SITE_URL}/anime`, isPartOf: { '@type': 'WebSite', name: 'Cinevero', url: SITE_URL }, mainEntity: { '@type': 'ItemList', itemListElement: items.slice(0, 12).map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: titleOf(item), url: `${SITE_URL}${hrefOf(item)}` })) } };
+  const collectionLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Anime Movies & Series', description: 'Popular anime movies and series on Hulu Crunchyroll.', url: `${SITE_URL}/anime`, isPartOf: { '@type': 'WebSite', name: 'Hulu Crunchyroll', url: SITE_URL }, mainEntity: { '@type': 'ItemList', itemListElement: items.slice(0, 12).map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: titleOf(item), url: `${SITE_URL}${hrefOf(item)}` })) } };
 
   return (
     <main className="min-h-screen bg-[#0e0e1d] text-white pb-20 sm:pb-8">
@@ -44,9 +44,9 @@ export default async function AnimePage({ searchParams }: { searchParams: Promis
         <header className="rounded-[24px] border border-white/10 bg-gradient-to-br from-[#17152c] via-[#15132a] to-[#111021] p-5 shadow-[0_18px_50px_rgba(0,0,0,.22)] sm:p-7">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[.2em] text-[#a58cff]"><Sparkles size={13} /> Cinevero catalogue</p>
+              <p className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[.2em] text-[#a58cff]"><Sparkles size={13} /> Hulu Crunchyroll catalogue</p>
               <h1 className="mt-2 text-3xl font-black tracking-[-.04em] sm:text-5xl">Anime</h1>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#a7a2ba]">Popular anime movies and series, in the same Cinevero experience as Movies, Series and Discover.</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#a7a2ba]">Popular anime movies and series, in the same Hulu Crunchyroll experience as Movies, Series and Discover.</p>
             </div>
             <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-bold text-[#aaa5bc]">Page {page} of {Math.max(totalPages, 1)}</span>
           </div>
@@ -59,7 +59,7 @@ export default async function AnimePage({ searchParams }: { searchParams: Promis
           </div>
         </header>
 
-        <section className="mt-7 rounded-[20px] border border-white/10 bg-[#17162a] p-5"><p className="text-[10px] font-black uppercase tracking-[.2em] text-[#a58cff]">Cinevero anime guide</p><h2 className="mt-2 text-xl font-black">How to explore anime on Cinevero</h2><p className="mt-2 max-w-3xl text-sm leading-6 text-[#aaa5bc]">This catalogue helps you compare anime movies and series by format, release year, popularity and rating. Open a title for its full details, seasons or related recommendations, then use the available provider information to check legitimate viewing options.</p><div className="mt-4 grid gap-3 sm:grid-cols-3"><div className="rounded-2xl bg-white/5 p-3"><h3 className="text-xs font-black">Anime movies</h3><p className="mt-1 text-[11px] leading-5 text-[#8f8aa3]">Browse standalone stories and open each title for its full movie details.</p></div><div className="rounded-2xl bg-white/5 p-3"><h3 className="text-xs font-black">Anime series</h3><p className="mt-1 text-[11px] leading-5 text-[#8f8aa3]">Explore seasons, episodes, cast and series information from the detail page.</p></div><div className="rounded-2xl bg-white/5 p-3"><h3 className="text-xs font-black">Discovery</h3><p className="mt-1 text-[11px] leading-5 text-[#8f8aa3]">Use related titles and Cinevero's catalogue navigation to continue exploring.</p></div></div></section>\n\n        {items.length === 0 ? (
+        <section className="mt-7 rounded-[20px] border border-white/10 bg-[#17162a] p-5"><p className="text-[10px] font-black uppercase tracking-[.2em] text-[#a58cff]">Hulu Crunchyroll anime guide</p><h2 className="mt-2 text-xl font-black">How to explore anime on Hulu Crunchyroll</h2><p className="mt-2 max-w-3xl text-sm leading-6 text-[#aaa5bc]">This catalogue helps you compare anime movies and series by format, release year, popularity and rating. Open a title for its full details, seasons or related recommendations, then use the available provider information to check legitimate viewing options.</p><div className="mt-4 grid gap-3 sm:grid-cols-3"><div className="rounded-2xl bg-white/5 p-3"><h3 className="text-xs font-black">Anime movies</h3><p className="mt-1 text-[11px] leading-5 text-[#8f8aa3]">Browse standalone stories and open each title for its full movie details.</p></div><div className="rounded-2xl bg-white/5 p-3"><h3 className="text-xs font-black">Anime series</h3><p className="mt-1 text-[11px] leading-5 text-[#8f8aa3]">Explore seasons, episodes, cast and series information from the detail page.</p></div><div className="rounded-2xl bg-white/5 p-3"><h3 className="text-xs font-black">Discovery</h3><p className="mt-1 text-[11px] leading-5 text-[#8f8aa3]">Use related titles and Hulu Crunchyroll's catalogue navigation to continue exploring.</p></div></div></section>        {items.length === 0 ? (
           <div className="mt-7 rounded-[20px] border border-dashed border-white/15 bg-white/[.03] px-6 py-16 text-center text-sm text-[#8f8aa3]">No anime titles are available on this page. Try another page.</div>
         ) : (
           <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 lg:grid-cols-6">
