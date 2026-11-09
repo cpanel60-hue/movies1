@@ -50,6 +50,10 @@ export function tmdbImage(path: string | null | undefined, size: 'w185' | 'w342'
   return path ? `https://image.tmdb.org/t/p/${size}${path}` : '';
 }
 
+export function moviePath(title: string, id: number) { return `/movie/watch-${slugify(title)}-${id}-full-movies-hd`; }
+
+export function seriesPath(title: string, id: number) { return `/series/watch-${slugify(title)}-${id}-full-series`; }
+
 export function slugify(value: string) {
   return value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'title';
 }
