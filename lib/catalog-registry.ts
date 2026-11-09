@@ -193,7 +193,7 @@ export async function getCatalogSitemapRows(category: CatalogCategory, part: num
   values.push(part * SITEMAP_PAGE_SIZE); const offsetParam = values.length;
   values.push(SITEMAP_PAGE_SIZE); const limitParam = values.length;
   return db.query<Array<{slug:string;tmdb_id:number;media_type:TmdbMediaType;last_content_change_at:string|null;updated_at:string}>>(
-    `SELECT slug,tmdb_id,media_type,last_content_change_at,updated_at FROM titles WHERE ${where} ORDER BY id ASC OFFSET $${offsetParam} LIMIT $${limitParam}`, values);
+    `SELECT slug,tmdb_id,media_type,title,last_content_change_at,updated_at FROM titles WHERE ${where} ORDER BY id ASC OFFSET $${offsetParam} LIMIT $${limitParam}`, values);
 }
 
 export async function getSyncShards(limit: number) {
