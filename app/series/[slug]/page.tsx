@@ -14,7 +14,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.ve
 const EPISODES_PER_PAGE = 20;
 
 function parseId(slug: string) {
-  const match = slug.match(/-(\d+)$/);
+  const match = slug.match(/-(\d+)(?:-full-movies-hd|-full-series)?$/);
   return match ? Number(match[1]) : Number(slug);
 }
 
