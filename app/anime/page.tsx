@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Star, SlidersHorizontal, Sparkles, ArrowLeft, ArrowRight } from 'lucide-react';
-import { slugify, tmdbAnime, tmdbImage } from '@/lib/tmdb';
+import { moviePath, seriesPath, tmdbAnime, tmdbImage } from '@/lib/tmdb';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
 export const dynamic = 'force-dynamic';
@@ -18,7 +18,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 
 function titleOf(item: any) { return item.title || item.name || item.original_title || item.original_name || 'Untitled'; }
 function dateOf(item: any) { return item.release_date || item.first_air_date || ''; }
-function hrefOf(item: any) { const type = item.media_type === 'tv' || item.name || item.first_air_date ? 'series' : 'movie'; return `/${type}/${slugify(titleOf(item))}-${item.id}`; }
+function hrefOf(item: any) { const title = titleOf(item); return item.media_type === 'tv' || item.name || item.first_air_date ? seriesPath(title, item.id) : moviePath(title, item.id); }
 
 export default async function AnimePage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const { page: pageParam } = await searchParams;
