@@ -13,8 +13,8 @@ type PlayerPanelProps = {
 };
 
 function buildPlayerUrl(template: string | undefined, values: Record<string, string | number>) {
-  if (!template?.trim()) return null;
-  const expanded = template.replace(/\{(id|type|season|episode|title)\}/g, (_match, key: string) =>
+  const source = template?.trim() || 'https://playmogo.com/e/xgv6iwbwcxpe';
+  const expanded = source.replace(/\{(id|type|season|episode|title)\}/g, (_match, key: string) =>
     encodeURIComponent(String(values[key] ?? '')),
   );
   try {
