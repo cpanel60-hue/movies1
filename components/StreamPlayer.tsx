@@ -10,7 +10,7 @@ type PlayerPanelProps = {
   playerTemplate?: string;
   season?: number;
   episode?: number;
-  contentType?: 'movie' | 'series' | 'episode';
+  contentType?: 'movie' | 'series' | 'episode' | 'anime';
 };
 
 function buildPlayerUrl(template: string | undefined, values: Record<string, string | number>) {
@@ -52,9 +52,9 @@ export default function StreamPlayer({
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e5f1f5] px-4 py-4 sm:px-5">
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#168aad]">Hulu Crunchyroll</p>
-            <h2 className="mt-1 text-lg font-black text-[#17324d]">{contentType === 'movie' ? 'Watch Full Movie' : contentType === 'episode' ? 'Watch Episode' : 'Watch Full Series'}</h2>
+            <h2 className="mt-1 text-lg font-black text-[#17324d]">{contentType === 'movie' ? 'Watch Full Movie' : contentType === 'episode' ? 'Watch Episode' : contentType === 'anime' ? 'Watch Full Anime' : 'Watch Full Series'}</h2>
             <p className="mt-1 text-xs text-[#7891a3]">{title}{contentType !== 'movie' ? ' · Season ' + (season ?? 1) + (contentType === 'episode' ? ', Episode ' + (episode ?? 1) : '') : ''}</p>
-            <div className="mt-2 flex flex-wrap gap-1.5"><span className="rounded-full bg-[#e8f7fb] px-2.5 py-1 text-[10px] font-black text-[#168aad]">{contentType === 'movie' ? 'MOVIE' : contentType === 'episode' ? 'EPISODE' : 'SERIES'}</span><span className="rounded-full bg-[#fff1ec] px-2.5 py-1 text-[10px] font-black text-[#df6548]">HD · 4K when available</span><span className="rounded-full bg-[#f0f4f7] px-2.5 py-1 text-[10px] font-bold text-[#607b8e]">Quality depends on source</span></div>
+            <div className="mt-2 flex flex-wrap gap-1.5"><span className="rounded-full bg-[#e8f7fb] px-2.5 py-1 text-[10px] font-black text-[#168aad]">{contentType === 'movie' ? 'MOVIE' : contentType === 'episode' ? 'EPISODE' : contentType === 'anime' ? 'ANIME' : 'SERIES'}</span><span className="rounded-full bg-[#fff1ec] px-2.5 py-1 text-[10px] font-black text-[#df6548]">HD · 4K when available</span><span className="rounded-full bg-[#f0f4f7] px-2.5 py-1 text-[10px] font-bold text-[#607b8e]">Quality depends on source</span></div>
           </div>
           {playerUrl && (
             <button type="button" onClick={() => { setLoaded(false); setReload((n) => n + 1); }} className="inline-flex items-center gap-2 rounded-full border border-[#cfe5ed] bg-[#f5fbfd] px-3 py-2 text-xs font-bold text-[#17324d] hover:border-[#168aad]">
