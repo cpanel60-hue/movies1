@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Cinevero',
-  description: 'Learn how Cinevero helps viewers discover movies and TV series through practical, human-readable recommendations and viewing guidance.',
+  title: 'About Hulu Crunchyroll',
+  description: 'Learn about Hulu Crunchyroll, a movie, series and anime discovery platform with title information, genres, trailers and viewing guidance.',
   alternates: { canonical: '/about' },
 };
 
@@ -10,26 +10,26 @@ export default function AboutPage() {
   return (
     <main className="mx-auto max-w-4xl px-5 py-14 text-zinc-800">
       <article className="prose prose-zinc max-w-none">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-600">About Cinevero</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-600">About Hulu Crunchyroll</p>
         <h1>Helping you decide what to watch</h1>
         <p>
-          Cinevero is a movie and TV discovery site built around a simple problem: finding something worth watching can take longer than watching it. We organize titles into practical discovery experiences so you can narrow your choices by genre, mood, popularity, release timing, runtime, and viewing context.
+          Hulu Crunchyroll helps viewers explore movies, TV series and anime. Browse titles by genre, popularity, release date and other catalogue details, then use trailers, cast information and related recommendations to decide what to watch.
         </p>
-        <h2>What makes Cinevero useful</h2>
+        <h2>What makes Hulu Crunchyroll useful</h2>
         <p>
-          A title page is designed to do more than display a poster and a score. Cinevero adds a viewing-oriented editorial layer that explains the kind of experience a title is suited to, who may enjoy it, and how it fits a particular movie-night decision. We also provide trailers, title details, genres, cast information, and related recommendations to help you make an informed choice.
+          A title page is designed to do more than display a poster and a score. Hulu Crunchyroll presents title details, trailers, genres, cast information and related recommendations to help visitors compare titles and choose what to watch. We also provide trailers, title details, genres, cast information, and related recommendations to help you make an informed choice.
         </p>
         <h2>How our recommendations work</h2>
         <p>
-          Cinevero combines structured catalogue metadata with our own presentation and viewing guidance. Discovery lists can use signals such as popularity, genre, release timing, runtime, and related titles. The editorial guidance is written to help with a viewing decision rather than to reproduce a provider's catalogue description. Recommendations are suggestions, not guarantees that a title will match every viewer's taste.
+          Discovery pages organize catalogue information such as popularity, genre, release timing and related titles. Recommendations are suggestions and may not match every viewer's taste.
         </p>
         <h2>How we approach editorial content</h2>
         <p>
-          We aim to add useful context instead of publishing pages that only repeat posters, ratings, or database fields. Our guides cover practical questions such as choosing a film by mood, matching a movie to the time available, and deciding between a film and a series. We review the site structure and editorial pages for clarity, usefulness, and consistency as the catalogue changes.
+          We aim to make catalogue pages clear and easy to navigate. Site information and editorial pages may be updated as the catalogue and available features change.
         </p>
         <h2>Third-party data and media</h2>
         <p>
-          Cinevero uses third-party services for selected catalogue metadata, artwork, and trailers. Third-party material remains subject to its respective provider's terms and rights. Cinevero does not claim ownership of third-party movie, TV, poster, cast, or trailer content and does not host movie or TV video files.
+          Hulu Crunchyroll may use third-party services for catalogue metadata, artwork and trailers. Third-party material remains subject to its respective provider's terms and rights. Rights to third-party movie, TV, poster, cast and trailer content remain with their respective owners.
         </p>
         <h2>Questions, corrections, or copyright concerns</h2>
         <p>
