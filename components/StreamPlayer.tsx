@@ -46,15 +46,32 @@ export default function StreamPlayer({
     title,
   }), [playerTemplate, tmdbId, mediaType, season, episode, title, reload]);
 
+  const contentLabel = contentType === 'movie'
+    ? 'MOVIE'
+    : contentType === 'episode'
+      ? 'EPISODE'
+      : contentType === 'anime'
+        ? 'ANIME'
+        : 'SERIES';
+  const seasonLabel = contentType === 'movie'
+    ? ''
+    : contentType === 'episode'
+      ? `Season ${season ?? 1} · Episode ${episode ?? 1}`
+      : `Season ${season ?? 1}`;
+
   return (
     <section id="watch" className="mx-auto max-w-[1180px] px-4 py-5 sm:px-6">
       <div className="overflow-hidden rounded-[22px] border border-[#d8edf3] bg-white shadow-[0_12px_35px_rgba(22,138,173,0.10)]">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e5f1f5] px-4 py-4 sm:px-5">
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#168aad]">Hulu Crunchyroll</p>
-            <h2 className="mt-1 text-lg font-black text-[#17324d]">{contentType === 'movie' ? 'Full Movie Streaming · HD & 4K' : contentType === 'episode' ? 'Full Episode Streaming · HD & 4K' : contentType === 'anime' ? 'Full Anime Streaming · HD & 4K' : 'Full Series Streaming · HD & 4K'}</h2>
-            <p className="mt-1 text-xs text-[#7891a3]">{title}{contentType !== 'movie' ? ' · Season ' + (season ?? 1) + (contentType === 'episode' ? ', Episode ' + (episode ?? 1) : '') : ''}</p>
-            <div className="mt-2 flex flex-wrap gap-1.5"><span className="rounded-full bg-[#e8f7fb] px-2.5 py-1 text-[10px] font-black text-[#168aad]">{contentType === 'movie' ? 'MOVIE' : contentType === 'episode' ? 'EPISODE' : contentType === 'anime' ? 'ANIME' : 'SERIES'}</span><span className="rounded-full bg-[#fff1ec] px-2.5 py-1 text-[10px] font-black text-[#df6548]">HD · 4K STREAMING</span><span className="rounded-full bg-[#f0f4f7] px-2.5 py-1 text-[10px] font-bold text-[#607b8e]">HD/4K when available</span></div>
+            <h2 className="mt-1 text-lg font-black text-[#17324d]">Watch {title} Full Streaming · HD &amp; 4K</h2>
+            {seasonLabel && <p className="mt-1 text-xs text-[#7891a3]">{title} · {seasonLabel}</p>}
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              <span className="rounded-full bg-[#e8f7fb] px-2.5 py-1 text-[10px] font-black text-[#168aad]">{contentLabel}</span>
+              <span className="rounded-full bg-[#fff1ec] px-2.5 py-1 text-[10px] font-black text-[#df6548]">HD · 4K</span>
+              <span className="rounded-full bg-[#f0f4f7] px-2.5 py-1 text-[10px] font-bold text-[#607b8e]">When available</span>
+            </div>
           </div>
           {playerUrl && (
             <button type="button" onClick={() => { setLoaded(false); setReload((n) => n + 1); }} className="inline-flex items-center gap-2 rounded-full border border-[#cfe5ed] bg-[#f5fbfd] px-3 py-2 text-xs font-bold text-[#17324d] hover:border-[#168aad]">
