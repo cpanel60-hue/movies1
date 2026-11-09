@@ -8,9 +8,9 @@ import { usePathname } from 'next/navigation';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/discover', label: 'Discover' },
-  { href: '/movie', label: 'Movies' },
-  { href: '/series', label: 'Series' },
-  { href: '/anime', label: 'Anime' },
+  { href: '/movie', label: 'Full Movies' },
+  { href: '/series', label: 'Full Series' },
+  { href: '/anime', label: 'Anime Streaming' },
   { href: '/genres', label: 'Genres' },
 ];
 
@@ -61,13 +61,13 @@ export default function SiteHeader() {
         </Link>
 
         <form onSubmit={submit} role="search" className="ml-5 hidden max-w-[330px] flex-1 md:flex">
-          <label className="sr-only" htmlFor="site-search">Search movies and series</label>
+          <label className="sr-only" htmlFor="site-search">Search movies, series & anime</label>
           <div className="flex w-full overflow-hidden rounded-xl border border-white/10 bg-white/[.06] focus-within:border-[#8d68ff] focus-within:ring-2 focus-within:ring-[#8d68ff]/10">
             <input
               id="site-search"
               value={query}
               onChange={e => setQuery(e.target.value)}
-              placeholder="Search movies & series"
+              placeholder="Search movies, series & anime"
               className="min-w-0 flex-1 bg-transparent px-3 py-2 text-sm text-white outline-none placeholder:text-[#77738a]"
             />
             <button type="submit" aria-label="Search" className="px-3.5 text-[#a58cff] hover:bg-[#7751ff] hover:text-white">
