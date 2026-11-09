@@ -13,13 +13,24 @@ function xml(value: string) {
 }
 
 export async function GET() {
-  const counts = await Promise.all(CATEGORIES.map(async category => {
-    try {
-      return { category, count: await countCatalogSitemap(category) };
-    } catch {
-      return { category, count: 0 };
-    }
-  }));
+  let counts: Array<{ category: CatalogCategory; count: number }>;
+
+  try {
+    counts = await Promise.all(CATEGORIES.map(async category => ({
+      category,
+      count: await countCatalogSitemap(category),
+    })));
+  } catch (error) {
+    console.error('[sitemap] Failed to read the catalog registry:', error);
+    return new NextResponse('Sitemap temporarily unavailable because the catalog registry could not be read.', {
+      status: 503,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-store',
+        'Retry-After': '300',
+      },
+    });
+  }
 
   const entries = [
     `  <sitemap><loc>${xml(`${SITE_URL}/sitemap-static.xml`)}</loc></sitemap>`,
