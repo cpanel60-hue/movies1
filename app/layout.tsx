@@ -15,14 +15,14 @@ const ADSENSE_ACCOUNT = 'ca-pub-2298621556332463';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: 'Hulu Crunchyroll – Movies & TV Series Discovery', template: '%s | Hulu Crunchyroll' },
-  description: 'Discover movies and TV series with Hulu Crunchyroll: mood-based discovery, trending titles, popular picks, genres, trailers and detailed movie pages.',
+  title: { default: 'Hulu Crunchyroll – Full Movie Streaming HD & 4K | Full Series Streaming', template: '%s | Hulu Crunchyroll' },
+  description: 'Stream full movies, full TV series and anime on Hulu Crunchyroll. Explore HD and 4K streaming titles, popular movies, series, episodes and anime.',
   applicationName: 'Hulu Crunchyroll',
   keywords: ['Hulu Crunchyroll', 'movies', 'TV series', 'films', 'movie discovery', 'what to watch', 'movie recommendations', 'trailers'],
   alternates: { canonical: '/', languages: { en: '/', 'x-default': '/' } },
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
-  openGraph: { title: 'Hulu Crunchyroll – Movies & TV Series Discovery', description: 'Decide what to watch with Hulu Crunchyroll: explore movies and series by mood, time, genre and more.', type: 'website', url: SITE_URL, siteName: 'Hulu Crunchyroll' },
-  twitter: { card: 'summary_large_image', title: 'Hulu Crunchyroll – Movies & TV Series Discovery', description: 'Discover what to watch with Hulu Crunchyroll.' },
+  openGraph: { title: 'Hulu Crunchyroll – Movies & TV Series Discovery', description: 'Explore full movie streaming, full series streaming and anime on Hulu Crunchyroll. HD and 4K quality when available.', type: 'website', url: SITE_URL, siteName: 'Hulu Crunchyroll' },
+  twitter: { card: 'summary_large_image', title: 'Hulu Crunchyroll – Movies & TV Series Discovery', description: 'Full movie and full series streaming in HD and 4K when available.' },
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
     other: {
