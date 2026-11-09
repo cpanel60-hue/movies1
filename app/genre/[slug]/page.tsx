@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Star } from 'lucide-react';
-import { slugify, tmdbDiscover, tmdbImage, type TmdbTitle } from '@/lib/tmdb';
+import { moviePath, seriesPath, slugify, tmdbDiscover, tmdbImage, type TmdbTitle } from '@/lib/tmdb';
 import { notFound } from 'next/navigation';
 import SiteHeader from '@/components/SiteHeader';
 
@@ -67,7 +67,7 @@ function Card({ item, type }: { item: TmdbTitle; type: 'movie' | 'tv' }) {
 
   return (
     <Link
-      href={`/${type === 'tv' ? 'series' : 'movie'}/${slugify(title)}-${item.id}`}
+      href={type === 'tv' ? seriesPath(title, item.id) : moviePath(title, item.id)}
       className="group min-w-0"
     >
       <div className="aspect-[2/3] overflow-hidden rounded-xl bg-zinc-100">
