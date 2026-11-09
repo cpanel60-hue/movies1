@@ -7,7 +7,7 @@ export default function LegalFooter() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <Link href="/" aria-label="Hulu Crunchyroll home" className="font-black tracking-tight text-white">HULU <span className="text-[#168aad]">CRUNCHYROLL</span></Link>
-            <p className="mt-1 text-xs text-[#9fc0cc]">Find your next favorite watch.</p>
+            <p className="mt-1 text-xs text-[#9fc0cc]">Full Movie Streaming · HD & 4K · Full Series Streaming</p>
           </div>
           <nav aria-label="Hulu Crunchyroll information and legal links" className="flex flex-wrap gap-x-4 gap-y-2">
             <Link href="/about" className="hover:text-white">About</Link>
