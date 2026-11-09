@@ -8,9 +8,9 @@ import { usePathname } from 'next/navigation';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/discover', label: 'Discover' },
-  { href: '/movie', label: 'Full Movies' },
-  { href: '/series', label: 'Full Series' },
-  { href: '/anime', label: 'Anime Streaming' },
+  { href: '/movie', label: 'Movies' },
+  { href: '/series', label: 'Series' },
+  { href: '/anime', label: 'Anime' },
   { href: '/genres', label: 'Genres' },
 ];
 
