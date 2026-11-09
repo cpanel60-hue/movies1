@@ -2,20 +2,18 @@
 
 import Link from 'next/link';
 import { ArrowRight, Bell, Bookmark, ChevronLeft, CircleUserRound, Compass, Download, Home, Play, Search, Star } from 'lucide-react';
-import type { TmdbTitle } from '@/lib/tmdb';
-import { tmdbImage } from '@/lib/tmdb';
+import { moviePath, seriesPath, tmdbImage, type TmdbTitle } from '@/lib/tmdb';
 
 type Props = { trending: TmdbTitle[]; popularMovies: TmdbTitle[]; popularSeries: TmdbTitle[]; latestMovies: TmdbTitle[]; upcoming: TmdbTitle[]; anime: TmdbTitle[] };
 const genreLinks = [['action','Action'],['comedy','Comedy'],['crime','Crime'],['drama','Drama'],['horror','Horror'],['mystery','Mystery'],['romance','Romance'],['science-fiction','Sci-Fi'],['thriller','Thriller']];
 function titleOf(item: TmdbTitle) { return item.title || item.name || item.original_title || item.original_name || 'Untitled'; }
 function yearOf(item: TmdbTitle) { return (item.release_date || item.first_air_date || '').slice(0,4); }
 function ratingOf(item: TmdbTitle) { return typeof item.vote_average === 'number' && item.vote_average > 0 ? item.vote_average.toFixed(1) : 'N/A'; }
-function slug(value: string, id: number) { return `${value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}-${id}`; }
 
 function PosterCard({ item, wide = false }: { item: TmdbTitle; wide?: boolean }) {
   const type = item.media_type === 'tv' || item.name ? 'series' : 'movie';
   const title = titleOf(item);
-  return <Link href={`/${type}/${slug(title, item.id)}`} className={`group block shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-400 ${wide ? 'w-[210px] sm:w-[240px]' : 'w-[132px] sm:w-[160px]'}`}>
+  return <Link href={type === 'series' ? seriesPath(title, item.id) : moviePath(title, item.id)} className={`group block shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-400 ${wide ? 'w-[210px] sm:w-[240px]' : 'w-[132px] sm:w-[160px]'}`}>
     <article className="overflow-hidden rounded-[14px] bg-[#211f39] shadow-[0_8px_22px_rgba(0,0,0,.16)]">
       <div className={`relative overflow-hidden bg-[#252140] ${wide ? 'aspect-[16/9]' : 'aspect-[2/3]'}`}>
         {item.poster_path || item.backdrop_path ? <img src={tmdbImage(wide ? item.backdrop_path : item.poster_path, wide ? 'w780' : 'w342')} alt={`${title} poster`} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-300 group-hover:scale-105" /> : <div className="flex h-full items-center justify-center text-xs text-[#9793ad]">No artwork</div>}
@@ -34,7 +32,7 @@ function Rail({ title, items, href, icon, wide = false }: { title: string; items
 export default function CatalogHome({ trending, popularMovies, popularSeries, latestMovies, upcoming, anime }: Props) {
   const featured = trending[0] || popularMovies[0];
   const featuredType = featured?.media_type === 'tv' || featured?.name ? 'series' : 'movie';
-  const featuredHref = featured ? `/${featuredType}/${slug(titleOf(featured), featured.id)}` : '/movie';
+  const featuredHref = featured ? (featuredType === 'series' ? seriesPath(titleOf(featured), featured.id) : moviePath(titleOf(featured), featured.id)) : '/movie';
   const continueWatching = trending.slice(1, 5).length ? trending.slice(1, 5) : popularMovies.slice(0, 4);
   return <div className="min-h-screen overflow-x-hidden bg-[#0e0e1d] pb-20 text-white sm:pb-8">
     <main className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
