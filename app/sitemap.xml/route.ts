@@ -26,7 +26,7 @@ export async function GET() {
     ...counts.flatMap(({ category, count }) => {
       const parts = Math.ceil(count / 1000);
       return Array.from({ length: parts }, (_, part) =>
-        `  <sitemap><loc>${xml(`${SITE_URL}/sitemap/${category}/${part}.xml`)}</loc></sitemap>`,
+        `  <sitemap><loc>${xml(`${SITE_URL}/sitemap/${category}/${part}`)}</loc></sitemap>`,
       );
     }),
   ];
