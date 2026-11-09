@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Star, SlidersHorizontal } from 'lucide-react';
-import { slugify, tmdbDiscover, tmdbImage } from '@/lib/tmdb';
+import { seriesPath, tmdbDiscover, tmdbImage } from '@/lib/tmdb';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
 export const dynamic = 'force-dynamic';
@@ -49,7 +49,7 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
               const year = (item.first_air_date || '').slice(0, 4);
               const rating = typeof item.vote_average === 'number' && item.vote_average > 0 ? item.vote_average.toFixed(1) : 'N/A';
               return (
-                <Link key={item.id} href={`/series/${slugify(item.name || 'untitled')}-${item.id}`} className="group min-w-0 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                <Link key={item.id} href={seriesPath(item.name || 'untitled', item.id)} className="group min-w-0 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
                   <article>
                     <div className="aspect-[2/3] overflow-hidden rounded-xl bg-zinc-100">
                       {item.poster_path ? <img src={tmdbImage(item.poster_path, 'w342')} alt={`${item.name || 'Series'} poster`} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" /> : <div className="flex h-full items-center justify-center text-xs text-zinc-400">No poster</div>}
