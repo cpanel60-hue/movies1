@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getCatalogSitemapRows, type CatalogCategory } from '@/lib/catalog-registry';
+import { moviePath, seriesPath } from '@/lib/tmdb';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
 const VALID_CATEGORIES = new Set<CatalogCategory>(['movies', 'series', 'anime']);
@@ -28,7 +29,7 @@ export async function GET(
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${rows.map(row => {
-    const url = `${SITE_URL}/${row.media_type === 'tv' ? 'series' : 'movie'}/${xml(row.slug)}`;
+    const url = `${SITE_URL}${row.media_type === 'tv' ? seriesPath(row.title, row.tmdb_id) : moviePath(row.title, row.tmdb_id)}`;
     const lastmod = row.last_content_change_at || row.updated_at;
     return `  <url><loc>${xml(url)}</loc><lastmod>${xml(new Date(lastmod).toISOString())}</lastmod></url>`;
   }).join('\n')}
