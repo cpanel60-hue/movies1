@@ -11,7 +11,7 @@ import { evaluateQualityGate } from '@/lib/quality-gate';
 import { getCatalogDetail } from '@/lib/catalog-content';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://hulucrunchyroll.vercel.app';
-function parseId(slug: string) { const match = slug.match(/-(\d+)$/); return match ? Number(match[1]) : Number(slug); }
+function parseId(slug: string) { const match = slug.match(/-(\d+)(?:-full-movies-hd|-full-series)?$/); return match ? Number(match[1]) : Number(slug); }
 function titleOf(item: any) { return item.title || item.name || item.original_title || item.original_name || 'Untitled'; }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
